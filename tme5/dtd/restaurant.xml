@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE restaurant SYSTEM "restaurant.dtd">
+
+<restaurant>
+  <nom>CROUS</nom>
+  <lieu>Paris</lieu>
+  <fermeture>Week-end</fermeture>
+  <menus>
+    <menu prix="2">
+      <nom>Specialite du chef</nom>
+    </menu>
+  </menus>
+</restaurant>

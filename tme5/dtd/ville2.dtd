@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!ELEMENT ville (monument)>
+<!ELEMENT monument EMPTY>
+<!ATTLIST ville nom CDATA #REQUIRED
+          departement CDATA #REQUIRED>
+<!ATTLIST monument nom CDATA #REQUIRED
+          tarif CDATA #REQUIRED>
+

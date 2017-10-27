@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!ELEMENT ville (nom, departement, monument)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT monument (nom, tarif)>
+<!ELEMENT departement (#PCDATA)>
+<!ELEMENT tarif (#PCDATA)>
