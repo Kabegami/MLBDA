@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE xs:schema SYSTEM "XMLSchema.dtd">
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.books.org"
+            xmlns="http://www.books.org"
+            elementFormDefault="qualified">
+
+  <xs:simpleType name='ISBN'>
+    <xs:restriction base='xs:string'>
+      <xs:pattern value="([0-9]+-){3}[0-9]+" />
+      <xs:length value="13" />
+    </xs:restriction>
+  </xs:simpleType>
+      
+  
+    <xs:complexType name='Publication'>
+      <xs:sequence>
+        <xs:element name='Title' type='xs:string'/>
+        <xs:element name='Author' type='xs:string'/>
+        <xs:element name='Date' type='xs:integer'/>
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name='BookPublication' >
+      <xs:complexContent>
+        <xs:extension base='Publication'>
+          <xs:sequence>
+            <xs:element name='ISBN' type='ISBN'/>
+            <xs:element name='Publisher' type='xs:string'/>   
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  
+  <xs:element name='BookStore'>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name='Book' type='BookPublication' maxOccurs='unbounded'/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
