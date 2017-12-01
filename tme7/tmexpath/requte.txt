@@ -1,0 +1,44 @@
+#question 0
+//FILM/TITRE/text()
+
+#question 1
+//FILM[GENRE = 'Horreur']/TITRE/text()
+
+#question 2
+//FILM[TITRE = 'Alien']/RESUME/text()
+
+#question 3
+//FILM[ROLES/ROLE/PRENOM='James' and ROLES/ROLE/NOM='Stewart']/TITRE/text()
+//FILM/ROLES/ROLE/[PRENOM='James' and NOM='Stewart']/../../TITRE/text()
+
+#question 4
+//FILM/RESUME/../TITRE/text()
+//FILM[count(RESUME) > 0]/TITRE/text()
+
+#question 6
+//FILM[not(RESUME)]/TITRE/text()
+
+#question 7
+//FILM[TITRE ='Vertigo']/MES/@idref
+
+#question 8
+//FILM[TITRE ='Reservoir dogs']/ROLES/ROLE[PRENOM='Harvey' and NOM='Keitel']/INTITULE/text()
+
+#question 9
+//FILM[last()]/TITRE/text()
+
+#question 10
+//FILM[TITRE='Shining']/preceding::FILM[1]/TITRE/text()
+
+#question 11
+//FILM[TITRE='Eyes Wide Shut']/MES/@idref
+
+#question 12
+//FILM[contains(TITRE, 'V')]/TITRE/text()
+
+#question 13
+//*[count(*) = 3]
+
+#question 14
+//*[contains(name(), 'TU')]
+

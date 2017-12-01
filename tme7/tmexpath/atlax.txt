@@ -1,0 +1,27 @@
+Question 1
+-----------------------------
+//pays[frontière/@pays='p1']
+
+Question 2
+-----------------------------
+//pays[@continent = //continent[@nom='Europe']/@n]
+
+Question 3
+-----------------------------
+//pays[count(langue) > 1 and @population > 10]/langue/text()
+
+Question 4
+-----------------------------
+//pays[(@continent = //continent[@nom='Europe']/@n)]/langue[@pourcentage > 9 and @pourcentage < 21]/text()
+
+Question 5
+-----------------------------
+//pays[@n = //montagne[@altitude > 4000]/situation/@pays]
+
+Question 6
+-----------------------------
+//montagne/situation[@pays = //pays[@continent = //continent[@nom = 'Europe']/@n]/@n]/..
+
+Question 7
+-----------------------------
+//pays[not(@n = //mer/situation/@pays)]
