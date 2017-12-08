@@ -1,0 +1,46 @@
+Exercice 1
+Question 1
+//person[@id='person0']/name/text()
+
+Question 2
+//open_auctions/auction[position() < 4]/initial
+
+for $r in //open_auctions/auction[position() < 4]/initial return <result id="{$r/../@id}">{$r}</result>
+
+Question 3
+for $r in //open_auctions/auction[position() < 4]
+let $first := $r/bidder[1]
+let $last := $r/bidder[last()]
+return <result><first>{$first/increase/text()}</first><last>{$last/increase/text()}</last></result>
+
+Question 4
+for $v in  //closed_auctions/auction/price where $v > 480 return $v
+
+Question 5
+//africa/item/name
+
+Question 6
+for $item in //africa/item
+let $price := //closed_auctions/auction[itemref/@item = $item/@id]/price
+where count($price) > 0
+return <res>{$item/name}{$price}</res>
+
+Question 7
+count(//person[not(homepage)])
+
+Exercice 2
+Question 1
+<bib>
+{for $r in //book[publisher = 'Addison-Wesley' and @year > 1991]
+return (<book year='{$r/@year}'>{$r/title}</book>)}
+</bib>
+
+Question 2
+<results>
+{for $r in //book
+return <result>{$r/title}{$r/author}</result>}
+</results>
+
+Question 3
+
+
