@@ -41,6 +41,37 @@ Question 2
 return <result>{$r/title}{$r/author}</result>}
 </results>
 
-Question 3
+==============================================================================
+                           SEANCE 9
+==============================================================================
 
+<tournois>{
+  for $t in distinct-values(doc("rencontre.xml")//rencontre/annee)
+  for $l in distinct-values(doc("rencontre.xml")//rencontre[annee = $t]/lieutournoi)
+  order by $t, $l
+  return <tournoi lieu="{$l}" annee="{$t}" />
+}</tournois>
+
+
+<tournois>{
+  for $t in distinct-values(doc("rencontre.xml")//rencontre/annee)
+  for $l in distinct-values(doc("rencontre.xml")//rencontre[annee=$t]/lieutournoi)
+  order by $l
+  return <tournoi lieu="{$l}" annee="{$t}">{
+    for $j in doc("gain.xml")//gain[annee = $t and lieutournoi = $l]
+    for $z in doc("joueur.xml")//joueur[@num = $j/nujoueur]
+    return <participant nom="{$z/nom}" prenom="{$z/prenom}" />
+  }</tournoi>
+}</tournois>
+
+<reponse>{
+ for $annee in distinct-values(doc("gain.xml")//annee)
+ order by $annee
+ return <annee valeur="{$annee}">{
+   for $j in distinct-values(doc("gain.xml")//gain[annee = $annee]/nujoueur)
+   let $bulu := count(distinct-values(doc("gain.xml")//gain[nujoueur=$j]))
+   let $nom := doc("joueur.xml")//joueur[@num = $j]/nom
+   return <joueur nom="{$nom}" tournois="{$bulu}"></joueur>
+ }</annee>
+}</reponse>
 
