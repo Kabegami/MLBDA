@@ -1,0 +1,59 @@
+=============================
+Question 3
+=============================
+SELECT distinct ?v
+WHERE
+{
+        { ?v a :City }
+        UNION
+        { ?x :livesIn ?v}
+}
+
+=============================
+Question 4
+=============================
+SELECT distinct ?x
+WHERE
+{
+        {?x :hasMother ?m . ?x :studiedAt ?u . ?m :studiedAt ?u}
+        UNION
+        {?x :hasFather ?p . ?x :studiedAt ?u . ?p :studiedAt ?u}
+}
+
+=============================
+Question 5
+=============================
+SELECT distinct ?x
+WHERE
+{
+        {?x :hasMother ?m . ?x :studiedAt ?u . ?m :studiedAt ?u . ?x :hasFather ?p . ?x :studiedAt ?u . ?p :studiedAt ?u}
+}
+
+=============================
+Question 6
+=============================
+SELECT distinct ?x
+WHERE
+{       
+        {?x :hasMother ?m . ?x :studiedAt ?u . ?m !:studiedAt ?u . ?x :hasFather ?p . ?x :studiedAt ?u . ?p !:studiedAt ?u}
+}
+
+=============================
+Question 7
+=============================
+SELECT distinct ?x ?u
+WHERE
+{
+        {?x :hasBrother ?b . ?x :studiedAt ?u . ?b :studiedAt ?u }
+}
+
+
+=============================
+Question 8
+=============================
+SELECT distinct ?x ?u ?v
+WHERE
+{
+        {?x :livesIn ?v . ?x :studiedAt ?u . {?u :locatedAt ?v2} FILTER (?v != ?v2)}
+}
+
